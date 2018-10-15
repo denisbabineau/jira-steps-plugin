@@ -154,6 +154,9 @@ public interface JiraEndPoints {
   @PUT("rest/api/2/version/{id}")
   Call<Void> updateVersion(@Path("id") String id, @Body Object version);
 
+  @POST("rest/api/2/version/{id}/removeAndSwap")
+  Call<Void> removeAndSwap(@Path("id") String id, @Body Object params);
+
   // Fields
   @GET("rest/api/2/field")
   Call<Object> getFields();

@@ -324,6 +324,14 @@ public class JiraService {
     }
   }
 
+  public ResponseData<Void> removeVersion(final String id, final Object params) {
+    try {
+      return parseResponse(jiraEndPoints.removeAndSwap(id, params).execute());
+    } catch (Exception e) {
+      return buildErrorResponse(e);
+    }
+  }
+
   public ResponseData<Object> getIssueLinkTypes() {
     try {
       return parseResponse(jiraEndPoints.getIssueLinkTypes().execute());
